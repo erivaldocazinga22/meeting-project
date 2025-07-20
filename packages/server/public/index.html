@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-ao">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal Académico</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb, #90caf9);
+      color: #0d47a1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: #0d47a1;
+      text-shadow: 0 0 10px rgba(13, 71, 161, 0.2);
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      max-width: 800px;
+      color: #1a237e;
+    }
+
+    .info {
+      font-size: 1rem;
+      color: #1565c0;
+      margin-top: 10px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      background-color: #1976d2;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #1565c0;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #1a237e;
+    }
+
+    .animation-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      animation: float 12s infinite linear;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.8);
+      }
+
+      100% {
+        transform: translateY(-100vh) scale(1.2);
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 3rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        font-size: 0.95rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Portal Académico</h1>
+  <p>Bem-vindo ao Portal Académico — uma plataforma digital para acesso a materiais de estudo organizados por curso, ano e disciplina.</p>
+  <p class="info">
+    <strong>Plataforma:</strong> Portal Académico<br />
+    <strong>Desenvolvido por:</strong> Erivaldo Malebo Caginga
+  </p>
+
+  <div class="buttons">
+    <a href="https://github.com/erivaldocazinga22" target="_blank" class="btn">GitHub</a>
+    <a href="/docs" class="btn">Ver Documentação da API</a>
+  </div>
+
+  <footer>
+    &copy; 2025 - Portal Académico | Todos os direitos reservados.
+  </footer>
+
+  <div class="animation-wrapper">
+    <div class="circle" style="width: 80px; height: 80px; left: 10%; animation-delay: 0s;"></div>
+    <div class="circle" style="width: 120px; height: 120px; left: 50%; animation-delay: 2s;"></div>
+    <div class="circle" style="width: 150px; height: 150px; left: 80%; animation-delay: 4s;"></div>
+  </div>
+
+  <script>
+    // Posicionamento aleatório vertical dos círculos
+    const circles = document.querySelectorAll('.circle');
+    circles.forEach(circle => {
+      circle.style.top = Math.random() * 100 + 'vh';
+    });
+  </script>
+</body>
+
+</html>

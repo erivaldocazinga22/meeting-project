@@ -8,7 +8,15 @@
 			"packages/*"
 		]
 	},
+	"scripts": {
+		"frontend": "cd packages/ui && pnpm dev",
+		"server": "cd packages/server && pnpm dev",
+		"dev": "concurrently \"pnpm run frontend\" \"pnpm run server\""
+	},
 	"repository": "https://github.com/erivaldocazinga22/meeting-project",
 	"author": "erivaldocazinga22 <cazarthdesogner@gmail.com>",
 	"license": "MIT",
+	"devDependencies": {
+		"concurrently": "^9.2.0"
+	}
 }

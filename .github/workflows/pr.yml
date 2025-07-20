@@ -1,0 +1,47 @@
+name: Auto PR
+
+on:
+  push:
+    branches:
+      - develop
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Instalar dependências (opcional)
+        run: |
+          echo "Instale suas dependências aqui, se necessário"
+          # ex: pnpm install
+
+      - name: Build do projeto (opcional)
+        run: |
+          echo "Execute seu build aqui, se necessário"
+          # ex: pnpm run build
+
+      - name: Criar Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: auto/pr-develop-to-main
+          base: main
+          title: "🔀 Merge develop into main"
+          body: |
+            Este PR foi criado automaticamente a partir da branch `develop` para `main`.
+
+            Verifique se está tudo certo antes de aprovar.
+          commit-message: "ci: atualizações automáticas da develop para main"
+          delete-branch: false
